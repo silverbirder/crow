@@ -2,7 +2,7 @@
   "name": "crow",
   "version": "0.0.1",
   "description": "crow is fetching html and saving storage",
-  "main": "./dist/app.js",
+  "main": "./src/index.js",
   "scripts": {
     "build": "tsc",
     "test": "jest --watch --coverage"
