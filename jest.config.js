@@ -4,6 +4,7 @@ module.exports = {
         "tsx",
         "js"
     ],
+    "preset": "jest-puppeteer",
     "transform": {
         "^.+\\.(ts|tsx)$": "ts-jest"
     },

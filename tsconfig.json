@@ -1,12 +1,11 @@
 {
   "compilerOptions": {
-    "module": "system",
-    "target": "es2017",
+    "module": "commonjs",
+    "target": "es2020",
     "types": ["node"],
     "noImplicitAny": true,
     "removeComments": true,
     "preserveConstEnums": true,
-    "outFile": "./dist/app.js",
     "sourceMap": true
   },
   "include": [
