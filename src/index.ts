@@ -1,7 +1,7 @@
 import {crow} from './crow';
-import {IStorage} from './storage';
+import {IStorage} from './storage/storage';
 import * as path from 'path';
-import {BigQueryStorage} from "./bigQueryStorage";
+import {BigQueryStorage} from "./storage/bigQueryStorage";
 
 const rootDir: string = path.resolve(__dirname, '../');
 
