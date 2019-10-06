@@ -61,9 +61,9 @@ typings/
 .next
 
 .idea
+output
 
-src/*.js
-src/*.map
+src/**/*.js
+src/**/*.map
 
-storage
 credentails*.json
