@@ -1,5 +1,6 @@
 import * as fs from "fs";
 import {IStorage} from "./storage";
+import {promisify} from "util";
 
 // @ts-ignore
 export class LocalStorage implements IStorage {
@@ -7,21 +8,20 @@ export class LocalStorage implements IStorage {
 
     constructor(rootPath: string) {
         this.rootDir = rootPath;
-        this.init();
+        this.init().then((result:boolean) => { return result});
     }
 
-    init(): void {
+    async init(): Promise<boolean> {
         if (!fs.existsSync(this.rootDir)) {
-            fs.mkdirSync(this.rootDir);
+            return new Promise(resolve => {
+                fs.mkdir(this.rootDir,err => {
+                    resolve(true);
+                });
+            });
         }
     }
 
-    save(name: string, contents: string): boolean {
-        try {
-            fs.writeFileSync(`${this.rootDir}/${name}`, contents);
-            return true;
-        } catch (e) {
-            return false;
-        }
+    async save(name: string, contents: string): Promise<boolean> {
+        return await promisify(fs.writeFile)(`${this.rootDir}/${name}`, contents).then(() => {return true;}).catch(() => {return false});
     }
 }

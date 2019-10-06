@@ -1,5 +1,4 @@
 export interface IStorage {
-    rootDir: string,
-    save(name: string, contents: string):boolean,
+    save(name: string, contents: string):Promise<boolean>,
     init():void,
 }

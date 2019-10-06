@@ -64,3 +64,6 @@ typings/
 
 src/*.js
 src/*.map
+
+storage
+credentails*.json

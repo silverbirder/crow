@@ -1,6 +1,6 @@
 import {Browser, Page} from "puppeteer";
 
-export function crow(url: string): any {
+export function crow(url: string): Promise<string> {
     const puppeteer = require('puppeteer');
     const html: Promise<string> = (async() => {
         const browser: Browser  = await puppeteer.launch({

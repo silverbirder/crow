@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Silver-birder/crow#readme",
   "dependencies": {
+    "@google-cloud/bigquery": "^4.2.1",
     "puppeteer": "^1.20.0"
   },
   "devDependencies": {
