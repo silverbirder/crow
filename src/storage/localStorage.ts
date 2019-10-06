@@ -6,8 +6,8 @@ import {promisify} from "util";
 export class LocalStorage implements IStorage {
     readonly rootDir: string;
 
-    constructor(rootPath: string) {
-        this.rootDir = rootPath;
+    constructor(targets: [string]) {
+        this.rootDir = targets[0];
         this.init().then((result:boolean) => { return result});
     }
 

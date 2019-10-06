@@ -9,9 +9,9 @@ export class BigQueryStorage implements IStorage {
     readonly datasetId: string;
     readonly tableId: string;
 
-    constructor(datasetId: string, tableId: string) {
-        this.datasetId = datasetId;
-        this.tableId = tableId;
+    constructor(targets: [string, string]) {
+        this.datasetId = targets[0];
+        this.tableId = targets[1];
         this.init();
     }
 

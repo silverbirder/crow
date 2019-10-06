@@ -1,16 +1,22 @@
 import {crow} from './crow';
 import {IStorage} from './storage/storage';
-import * as path from 'path';
+import {LocalStorage} from "./storage/localStorage";
 import {BigQueryStorage} from "./storage/bigQueryStorage";
 
-const rootDir: string = path.resolve(__dirname, '../');
+class Crow {
+    readonly storage: IStorage;
+    constructor(storage: IStorage) {
+        this.storage = storage;
+    }
+    invoke(name: string, url:string) {
+        crow(url).then((contents:string) => {
+            this.storage.save(name, contents);
+        })
+    }
+}
 
-const domain:string = 'google.com';
-const url: string = `https://${domain}`;
-
-const storage:IStorage  = new BigQueryStorage(`datasetId`, `tableId`);
-
-crow(url).then((contents:string) => {
-    storage.save(`${domain}.html`, contents).then((result:boolean) => {
-    });
-});
+module.exports = {
+    Crow: Crow,
+    LocalStorage: LocalStorage,
+    BigQueryStorage: BigQueryStorage
+};
