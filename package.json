@@ -1,5 +1,5 @@
 {
-  "name": "silver-crow",
+  "name": "@silverbirder/crow",
   "version": "0.0.2",
   "description": "crow is fetching html and saving storage",
   "main": "index.js",
